@@ -1,0 +1,1007 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff1df,
+            #ffe0bb,
+            #fff8ef
+        );
+
+    color: #3b2115;
+
+    min-height: 100vh;
+}
+
+
+/* ================= HEADER ================= */
+
+.header {
+    background:
+        linear-gradient(
+            135deg,
+            #ff7a00,
+            #ff9f43
+        );
+
+    color: white;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.15);
+}
+
+
+.header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+
+.header p {
+    opacity: 0.9;
+}
+
+
+/* ================= CONTAINER ================= */
+
+.container {
+    width: min(1100px, 94%);
+    margin: 30px auto;
+}
+
+
+/* ================= SUMMARY ================= */
+
+.summary-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(180px, 1fr)
+        );
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+
+.summary-card {
+    padding: 22px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.9);
+
+    box-shadow:
+        0 8px 25px rgba(80,40,0,0.1);
+
+    text-align: center;
+
+    transition: 0.2s;
+
+    cursor: pointer;
+
+    position: relative;
+}
+
+
+.summary-card:hover {
+    transform:
+        translateY(-5px)
+        scale(1.01);
+}
+
+
+.summary-card span {
+    font-size: 30px;
+}
+
+
+.summary-card h3 {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+
+.summary-card strong {
+    display: block;
+    font-size: 24px;
+}
+
+
+.summary-card small {
+    display: block;
+
+    margin-top: 9px;
+
+    color: #8a6c59;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+.summary-card.given {
+    border-top:
+        5px solid #ff6b6b;
+}
+
+
+.summary-card.received {
+    border-top:
+        5px solid #2ecc71;
+}
+
+
+.summary-card.want {
+    border-top:
+        5px solid #f39c12;
+}
+
+
+.summary-card.they {
+    border-top:
+        5px solid #3498db;
+}
+
+
+.summary-card.balance {
+    border-top:
+        5px solid #9b59b6;
+
+    cursor: default;
+}
+
+
+/* ================= CARD ================= */
+
+.card {
+    background:
+        rgba(255,255,255,0.94);
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(80,40,0,0.1);
+}
+
+
+.section-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.section-title h2 {
+    font-size: 22px;
+}
+
+
+/* ================= FORMS ================= */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(200px, 1fr)
+        );
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+
+label {
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+
+    font-size: 14px;
+}
+
+
+input,
+select {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border:
+        2px solid #f0d5bd;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    background: white;
+
+    color: #3b2115;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+
+input:focus,
+select:focus {
+    border-color: #ff8a24;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(255,138,36,0.15);
+}
+
+
+.note-box {
+    margin-bottom: 18px;
+}
+
+
+.form-buttons {
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+
+/* ================= BUTTONS ================= */
+
+button {
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    border-radius: 12px;
+
+    transition: 0.2s;
+}
+
+
+button:hover {
+    transform:
+        translateY(-2px);
+}
+
+
+.primary-btn {
+    background:
+        linear-gradient(
+            135deg,
+            #ff7a00,
+            #ff9f43
+        );
+
+    color: white;
+
+    padding: 13px 20px;
+}
+
+
+.secondary-btn {
+    background:
+        #f4e7dc;
+
+    color: #633c25;
+
+    padding: 13px 20px;
+}
+
+
+.danger-btn {
+    background:
+        #ffe1e1;
+
+    color: #d63031;
+
+    padding: 10px 14px;
+}
+
+
+/* ================= ACCOUNT ================= */
+
+.account-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(160px, 1fr)
+        );
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+
+.account-stats div {
+    background:
+        #fff5eb;
+
+    padding: 15px;
+
+    border-radius: 14px;
+
+    text-align: center;
+}
+
+
+.account-stats span {
+    display: block;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+
+.account-stats strong {
+    font-size: 20px;
+}
+
+
+/* ================= FRIEND CARDS ================= */
+
+#friendBalances {
+    display: grid;
+    gap: 15px;
+}
+
+
+.friend-card {
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf5,
+            #fff0df
+        );
+
+    border:
+        2px solid #f4d7bc;
+
+    border-radius: 17px;
+
+    padding: 18px;
+}
+
+
+.friend-card-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.friend-card h3 {
+    font-size: 19px;
+
+    margin-bottom: 8px;
+}
+
+
+.friend-owe {
+    color: #159447;
+
+    font-weight: bold;
+
+    margin-bottom: 5px;
+}
+
+
+.you-owe {
+    color: #d35400;
+
+    font-weight: bold;
+
+    margin-bottom: 5px;
+}
+
+
+.settled {
+    color: #218c5a;
+
+    font-weight: bold;
+
+    margin-bottom: 5px;
+}
+
+
+.planned {
+    color: #7f5a00;
+
+    font-size: 14px;
+
+    margin-top: 5px;
+}
+
+
+.friend-action {
+    flex-shrink: 0;
+}
+
+
+.settle-btn {
+    background:
+        linear-gradient(
+            135deg,
+            #ff8a24,
+            #ffb067
+        );
+
+    color: white;
+
+    padding: 11px 15px;
+
+    white-space: nowrap;
+}
+
+
+/* ================= HISTORY ================= */
+
+.history-title {
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+.search-help {
+    background: #fff5eb;
+
+    border:
+        1px solid #f0d5bd;
+
+    padding: 11px 14px;
+
+    border-radius: 12px;
+
+    margin-bottom: 12px;
+
+    color: #76543f;
+
+    font-size: 13px;
+}
+
+
+.filters {
+    display: grid;
+
+    grid-template-columns:
+        1fr 220px;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+
+.transaction-row {
+    display: grid;
+
+    grid-template-columns:
+        1fr auto auto;
+
+    gap: 15px;
+
+    align-items: center;
+
+    padding: 15px;
+
+    border-bottom:
+        1px solid #f0ded0;
+}
+
+
+.transaction-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.transaction-info strong {
+    font-size: 15px;
+}
+
+
+.transaction-info span {
+    font-weight: bold;
+}
+
+
+.transaction-info small {
+    color: #8a6c59;
+}
+
+
+.transaction-amount {
+    font-size: 18px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+.transaction-actions {
+    display: flex;
+    gap: 7px;
+}
+
+
+.edit-btn {
+    background:
+        #fff0c7;
+
+    color: #8a6500;
+
+    padding: 8px 10px;
+}
+
+
+.delete-btn {
+    background:
+        #ffe1e1;
+
+    color: #c0392b;
+
+    padding: 8px 10px;
+}
+
+
+/* ================= SEARCH RESULT ================= */
+
+.search-result-header {
+    background:
+        linear-gradient(
+            135deg,
+            #fff5eb,
+            #ffe9d4
+        );
+
+    border:
+        2px solid #f4d7bc;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    margin-bottom: 12px;
+}
+
+
+.search-result-header strong {
+    color: #ff7a00;
+}
+
+
+.search-result-header small {
+    display: block;
+
+    color: #8a6c59;
+
+    margin-top: 4px;
+}
+
+
+/* ================= MODAL ================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(40,20,5,0.55);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 1000;
+}
+
+
+.modal.show {
+    display: flex;
+}
+
+
+.modal-content {
+    position: relative;
+
+    width:
+        min(450px, 100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 24px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,0.25);
+
+    animation:
+        popup 0.2s ease;
+}
+
+
+@keyframes popup {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+
+}
+
+
+.close-modal {
+    position: absolute;
+
+    top: 12px;
+
+    right: 15px;
+
+    width: 35px;
+
+    height: 35px;
+
+    border-radius: 50%;
+
+    background:
+        #ffe9dc;
+
+    color: #633c25;
+
+    font-size: 24px;
+}
+
+
+.modal-content h2 {
+    margin-bottom: 10px;
+}
+
+
+.modal-content h3 {
+    color: #ff7a00;
+
+    margin-bottom: 8px;
+}
+
+
+.settlement-balance {
+    background:
+        #fff5eb;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    margin-bottom: 18px;
+
+    font-weight: bold;
+}
+
+
+.settlement-options {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+}
+
+
+.settlement-options button {
+    padding: 13px;
+
+    background:
+        #f4e7dc;
+
+    color: #633c25;
+}
+
+
+.settlement-options button.selected {
+    background:
+        linear-gradient(
+            135deg,
+            #ff7a00,
+            #ff9f43
+        );
+
+    color: white;
+}
+
+
+.full-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+/* ================= SUMMARY DETAILS ================= */
+
+.summary-modal {
+    width:
+        min(500px, 100%);
+}
+
+
+.summary-modal h2 {
+    color: #ff7a00;
+
+    margin-bottom: 20px;
+}
+
+
+.summary-person {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px;
+
+    margin-bottom: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf5,
+            #fff0df
+        );
+
+    border:
+        1px solid #f2d3b7;
+
+    border-radius: 15px;
+}
+
+
+.summary-person-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.summary-person-info strong {
+    font-size: 17px;
+}
+
+
+.summary-person-info small {
+    color: #8a6c59;
+}
+
+
+.summary-person-amount {
+    font-size: 18px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+.summary-empty {
+    text-align: center;
+
+    padding: 30px 15px;
+
+    color: #8a6c59;
+}
+
+
+.summary-total {
+    margin-top: 15px;
+
+    padding: 15px;
+
+    background:
+        #fff5eb;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    font-weight: bold;
+}
+
+
+/* ================= EMPTY ================= */
+
+.empty-state {
+    text-align: center;
+
+    padding: 30px;
+
+    color: #8a6c59;
+
+    font-size: 16px;
+}
+
+
+/* ================= MESSAGE ================= */
+
+#message {
+    position: fixed;
+
+    bottom: 25px;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, 100px);
+
+    background:
+        #3b2115;
+
+    color: white;
+
+    padding: 13px 20px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.2);
+
+    opacity: 0;
+
+    transition: 0.3s;
+
+    z-index: 2000;
+}
+
+
+#message.show {
+    opacity: 1;
+
+    transform:
+        translate(-50%, 0);
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+
+    .container {
+        width: 94%;
+    }
+
+
+    .card {
+        padding: 18px;
+    }
+
+
+    .friend-card-top {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .friend-action {
+        width: 100%;
+    }
+
+
+    .settle-btn {
+        width: 100%;
+    }
+
+
+    .filters {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .transaction-row {
+        grid-template-columns:
+            1fr;
+
+        gap: 10px;
+    }
+
+
+    .transaction-actions {
+        width: 100%;
+    }
+
+
+    .transaction-actions button {
+        flex: 1;
+    }
+
+
+    .settlement-options {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .summary-person {
+        align-items: flex-start;
+    }
+
+}

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Friends Money Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div>
+        <h1>💰 Friends Money Tracker</h1>
+        <p>Track every rupee between you and your friends</p>
+    </div>
+</header>
+
+
+<main class="container">
+
+    <!-- ================= SUMMARY ================= -->
+
+    <section class="summary-grid">
+
+        <div
+            class="summary-card given"
+            onclick="openSummaryDetails('given')"
+        >
+            <span>💸</span>
+            <h3>Money I Gave</h3>
+            <strong id="givenTotal">₹0.00</strong>
+            <small>Tap to see who</small>
+        </div>
+
+
+        <div
+            class="summary-card received"
+            onclick="openSummaryDetails('received')"
+        >
+            <span>💰</span>
+            <h3>Money I Received</h3>
+            <strong id="receivedTotal">₹0.00</strong>
+            <small>Tap to see from whom</small>
+        </div>
+
+
+        <div
+            class="summary-card want"
+            onclick="openSummaryDetails('wantGive')"
+        >
+            <span>📌</span>
+            <h3>I Want to Give</h3>
+            <strong id="wantGiveTotal">₹0.00</strong>
+            <small>Tap to see who</small>
+        </div>
+
+
+        <div
+            class="summary-card they"
+            onclick="openSummaryDetails('theyGive')"
+        >
+            <span>🤝</span>
+            <h3>They Want to Give</h3>
+            <strong id="theyGiveTotal">₹0.00</strong>
+            <small>Tap to see who</small>
+        </div>
+
+
+        <div class="summary-card balance">
+            <span>🏦</span>
+            <h3>Current Balance</h3>
+            <strong id="currentBalance">₹0.00</strong>
+        </div>
+
+    </section>
+
+
+    <!-- ================= ACCOUNT ================= -->
+
+    <section class="card">
+
+        <div class="section-title">
+            <h2>👤 My Account</h2>
+        </div>
+
+        <div class="form-grid">
+
+            <div>
+                <label>Your Name</label>
+
+                <input
+                    type="text"
+                    id="accountName"
+                    placeholder="Your name"
+                >
+            </div>
+
+
+            <div>
+                <label>Starting Balance</label>
+
+                <input
+                    type="number"
+                    id="startingBalance"
+                    placeholder="0"
+                >
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-btn"
+            onclick="saveAccount()"
+        >
+            💾 Save Account
+        </button>
+
+
+        <div class="account-stats">
+
+            <div>
+                <span>Total Given</span>
+                <strong id="accountGiven">₹0.00</strong>
+            </div>
+
+            <div>
+                <span>Total Received</span>
+                <strong id="accountReceived">₹0.00</strong>
+            </div>
+
+            <div>
+                <span>Available Balance</span>
+                <strong id="availableBalance">₹0.00</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ADD TRANSACTION ================= -->
+
+    <section class="card">
+
+        <div class="section-title">
+            <h2>➕ Add Transaction</h2>
+        </div>
+
+
+        <form id="transactionForm">
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Friend Name</label>
+
+                    <input
+                        type="text"
+                        id="friendName"
+                        placeholder="Example: Mohan"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label>Amount</label>
+
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="₹ Amount"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label>Date</label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label>Transaction Type</label>
+
+                    <select id="transactionType">
+
+                        <option value="given">
+                            💸 Money I Gave
+                        </option>
+
+                        <option value="received">
+                            💰 Money I Received
+                        </option>
+
+                        <option value="wantGive">
+                            📌 I Want to Give
+                        </option>
+
+                        <option value="theyGive">
+                            🤝 They Want to Give
+                        </option>
+
+                    </select>
+                </div>
+
+            </div>
+
+
+            <div class="note-box">
+
+                <label>Note</label>
+
+                <input
+                    type="text"
+                    id="note"
+                    placeholder="Optional note"
+                >
+
+            </div>
+
+
+            <div class="form-buttons">
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                >
+                    ➕ Add Transaction
+                </button>
+
+
+                <button
+                    type="button"
+                    class="secondary-btn"
+                    onclick="clearForm()"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <!-- ================= FRIEND BALANCES ================= -->
+
+    <section class="card">
+
+        <div class="section-title">
+            <h2>👥 Friend Balances</h2>
+        </div>
+
+        <div id="friendBalances"></div>
+
+    </section>
+
+
+    <!-- ================= HISTORY ================= -->
+
+    <section class="card">
+
+        <div class="section-title history-title">
+
+            <h2>📜 Transaction History</h2>
+
+            <button
+                class="danger-btn"
+                onclick="clearAll()"
+            >
+                🗑️ Clear All
+            </button>
+
+        </div>
+
+
+        <div class="search-help">
+            🔎 Search a friend's name to see <strong>every transaction</strong>
+            with that friend.
+        </div>
+
+
+        <div class="filters">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="🔍 Search friend or note..."
+            >
+
+
+            <select id="filter">
+
+                <option value="all">
+                    All Transactions
+                </option>
+
+                <option value="given">
+                    💸 Money I Gave
+                </option>
+
+                <option value="received">
+                    💰 Money I Received
+                </option>
+
+                <option value="wantGive">
+                    📌 I Want to Give
+                </option>
+
+                <option value="theyGive">
+                    🤝 They Want to Give
+                </option>
+
+                <option value="settlement">
+                    🤝 Settlements
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div id="transactionHistory"></div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= SETTLEMENT MODAL ================= -->
+
+<div
+    id="settlementModal"
+    class="modal"
+>
+
+    <div class="modal-content">
+
+        <button
+            class="close-modal"
+            onclick="closeSettlementModal()"
+        >
+            ×
+        </button>
+
+
+        <h2>🤝 Payment / Settlement</h2>
+
+        <h3 id="settlementFriend">
+            Friend
+        </h3>
+
+
+        <p
+            id="settlementBalance"
+            class="settlement-balance"
+        >
+            Balance
+        </p>
+
+
+        <div class="settlement-options">
+
+            <button
+                id="friendPaidBtn"
+                onclick="chooseSettlementDirection('friendPaid')"
+            >
+                💰 They Paid Me
+            </button>
+
+
+            <button
+                id="iPaidBtn"
+                onclick="chooseSettlementDirection('iPaid')"
+            >
+                💸 I Paid Them
+            </button>
+
+        </div>
+
+
+        <label>Amount</label>
+
+        <input
+            type="number"
+            id="settlementAmount"
+            min="0"
+            step="0.01"
+            placeholder="₹ Amount"
+        >
+
+
+        <button
+            class="primary-btn full-btn"
+            onclick="handleSettlementSave()"
+        >
+            ✅ Confirm Payment
+        </button>
+
+
+        <button
+            class="secondary-btn full-btn"
+            onclick="closeSettlementModal()"
+        >
+            Cancel
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= SUMMARY DETAILS MODAL ================= -->
+
+<div
+    id="summaryModal"
+    class="modal"
+>
+
+    <div class="modal-content summary-modal">
+
+        <button
+            class="close-modal"
+            onclick="closeSummaryDetails()"
+        >
+            ×
+        </button>
+
+
+        <h2 id="summaryModalTitle">
+            Details
+        </h2>
+
+
+        <div id="summaryDetailsList"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= MESSAGE ================= -->
+
+<div id="message"></div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
